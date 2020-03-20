@@ -1,15 +1,44 @@
-<?php get_header() ?>
+<?php get_header(); ?>
 
-<?php if (have_posts()): ?>
-    <ul>
-        <?php while(have_posts()): the_post(); ?>
-            <li><?php the_title() ?></li>
-        <?php endwhile ?>
-    </ul>
 
-<?php else: ?>
-    <h1>Pas d'articles</h1>
+<?php $args = array(
+    'post_type'         => 'post',
+    'posts_per_page'    => 10
+);
+$the_query = new WP_Query($args);
 
-<?php endif; ?>
+// The Loop
+if ($the_query->have_posts()) {
+?>
+    <div class="row">
+        <?php
+        while ($the_query->have_posts()) {
+            $the_query->the_post();
+        ?>
+            <div class="col-sm-4">
+                <div class="card">
+                <?php get_the_post_thumbnail('post-thumbnail', ['class' => 'card-img-top', 'alt' => '', 'style' => 'height: auto;'])?>
+                    <div class="card-body">
+                        <h5 class="card-title"><?php the_title(); ?></h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><?php the_category(); ?></h6>
+                        <a href="<?php get_the_permalink() ?>" class="card-link">Voir plus</a>
+                    </div>
+                </div>
+            </div>
+        <?php
+        }
+        ?>
+    </div>
+<?php
+}
 
-<?php get_footer() ?>
+/* autre alternative (openclassroom) */
+/*
+while (have_posts()) :
+    the_post();
+    the_content();
+endwhile;
+*/
+?>
+
+<?php get_footer(); ?>
