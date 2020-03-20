@@ -8,5 +8,8 @@
 </head>
 <body>
 
+<?php
+wp_nav_menu(array('theme_location' => 'main_menu'));
+?>
+
 <div class="container">
-<p>Ceci est le header</p>

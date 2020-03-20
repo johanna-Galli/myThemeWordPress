@@ -37,7 +37,7 @@ function zero_add_menu()
     register_nav_menu('main_menu', 'Menu principal');
 }
 
-wp_nav_menu(array('theme_location' => 'main_menu'));
+
 /**/
 
 

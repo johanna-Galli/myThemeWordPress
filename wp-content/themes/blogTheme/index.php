@@ -1,7 +1,10 @@
 <?php get_header(); ?>
 
 
-<?php $args = array(
+<?php
+/* grafikart */
+/*
+$args = array(
     'post_type'         => 'post',
     'posts_per_page'    => 10
 );
@@ -17,7 +20,7 @@ if ($the_query->have_posts()) {
         ?>
             <div class="col-sm-4">
                 <div class="card">
-                <?php get_the_post_thumbnail('post-thumbnail', ['class' => 'card-img-top', 'alt' => '', 'style' => 'height: auto;'])?>
+                    <?php get_the_post_thumbnail('post-thumbnail', ['class' => 'card-img-top', 'alt' => '', 'style' => 'height: auto;']) ?>
                     <div class="card-body">
                         <h5 class="card-title"><?php the_title(); ?></h5>
                         <h6 class="card-subtitle mb-2 text-muted"><?php the_category(); ?></h6>
@@ -31,14 +34,21 @@ if ($the_query->have_posts()) {
     </div>
 <?php
 }
-
-/* autre alternative (openclassroom) */
-/*
-while (have_posts()) :
-    the_post();
-    the_content();
-endwhile;
 */
-?>
+/* openclassroom */
+
+while (have_posts()) :
+
+?> 
+<div class="text-center">
+    <?php the_post(); ?> 
+    <?php the_content(); ?>
+    <?php comments_template(); ?>
+    <?php comment_form(); ?>
+</div>
+<?php
+endwhile;
+
+    ?>
 
 <?php get_footer(); ?>
