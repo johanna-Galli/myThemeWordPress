@@ -1,16 +1,15 @@
 /**
-Theme Name: Blog theme
+Theme Name: BlogTheme
 Author: Johanna Galli
 **/
 
 /*all*/
-
-* {
+html {
     margin: 0;
 }
 
-/*menu*/
 
+/*menu*/
 .menu {
     width: 100%;
 }
@@ -19,9 +18,34 @@ Author: Johanna Galli
     list-style-type: none;
     margin: 0;
     padding: 0;
+    overflow: hidden;
+    background-color: rgb(66, 14, 40);
+}
+
+.menu ul li {
+    float: left;
 }
 
 .menu ul li a {
     display: block;
-    width: 60px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    padding: 10px;
+    margin: 10px;
+    border: solid 1px transparent;
+}
+
+.menu ul li a:hover {
+    border-right: solid 1px white;
+    border-bottom: solid 1px white;
+    border-top: solid 1px rgb(255, 174, 215);
+    border-left: solid 1px rgb(255, 174, 215);
+}
+
+/*articles*/
+
+.article-container {
+    box-shadow: 1px 1px 12px rgb(139, 44, 76);
 }

@@ -15,6 +15,7 @@ function blogtheme_register_assets()
 
     wp_enqueue_style('bootstrap');
     wp_enqueue_script('bootstrap');
+    wp_enqueue_style('style.css');
 }
 /**/
 

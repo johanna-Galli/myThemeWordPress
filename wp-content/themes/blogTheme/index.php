@@ -39,16 +39,21 @@ if ($the_query->have_posts()) {
 
 while (have_posts()) :
 
-?> 
-<div class="text-center">
-    <?php the_post(); ?> 
-    <?php the_content(); ?>
-    <?php comments_template(); ?>
-    <?php comment_form(); ?>
-</div>
+?>
+    <div class="text-center">
+        <div class="article-container">
+            <h3><?php the_title(); ?></h3>
+            
+            <?php the_post(); ?>
+            <?php the_content(); ?>
+            <?php comments_template(); ?>
+            <?php comment_form(); ?>
+        </div>
+
+    </div>
 <?php
 endwhile;
 
-    ?>
+?>
 
 <?php get_footer(); ?>
