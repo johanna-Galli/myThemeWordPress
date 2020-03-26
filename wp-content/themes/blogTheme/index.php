@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-
+<h4>index</h4>
 <?php
 /* grafikart */
 /*
@@ -37,23 +37,22 @@ if ($the_query->have_posts()) {
 */
 /* openclassroom */
 
-while (have_posts()) :
+if (have_posts()) {
+    while (have_posts()) :
+    ?>
+        <div class="text-center">
+            <div class="article-container">
+                <h3><?php the_title(); ?></h3>
+                <?php the_post(); ?>
+                <?php the_content(); ?>
+                <?php comments_template(); ?>
+                <?php comment_form(); ?>
+                <a href="<?php get_the_permalink() ?>" class="card-link">Voir plus</a>
+            </div>
 
-?>
-    <div class="text-center">
-        <div class="article-container">
-            <h3><?php the_title(); ?></h3>
-            
-            <?php the_post(); ?>
-            <?php the_content(); ?>
-            <?php comments_template(); ?>
-            <?php comment_form(); ?>
         </div>
-
-    </div>
-<?php
-endwhile;
-
+    <?php
+    endwhile;
+}
 ?>
-
 <?php get_footer(); ?>
